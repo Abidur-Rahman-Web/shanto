@@ -1,0 +1,109 @@
+                                                  app.js
+import express from "express";
+import cors from "cors";
+import router from "./routes/api.js";
+import { port } from "./config/config.js";
+import mongoose from "mongoose";
+import { rateLimit } from "express-rate-limit";
+// import helmet from "helmet";
+// import hpp from "hpp";
+import cookieParser from "cookie-parser";
+const app = express();
+app.use(express.json());
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+  message: "Too many requests from this IP, please try again later.",
+});
+app.use(limiter);
+// app.use(helmet());
+// app.use(hpp());
+
+app.use("/api", router);
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
+                                                 app.js
+                                                config.js
+export const port = 5050;
+export const MONGODB_CONNECTION = "";
+                                                 config.js
+                                                 api.js
+import express from "express";
+import * as taskController from "../controllers/taskController.js";
+import { authMiddleware } from "../middlewares/authMiddleware.js";
+const router = express.Router();
+console.log(router);
+router.post("/demo1/:name/:age", taskController.demo1);
+router.post("/demo2", taskController.demo2);
+router.post("/demo3", taskController.demo3);
+router.post("/demo4", taskController.demo4);
+router.post("/demo5", taskController.demo5);
+router.post("/demo6", authMiddleware, taskController.demo5);
+
+export default router;
+                                                 
+                                                 api.js
+                                                 taskController.js
+/**
+ * @description demo1, just for testing
+ * @param {Object} req - request object
+ * @param {Object} res - response object
+ * @param {string} req.params.name - name
+ * @param {number} req.params.age - age
+ * @returns {Object} { name: string, age: number }
+ */
+export const demo1 = async (req, res) => {
+  let name = req.params.name;
+  let age = req.params.age;
+  return res.json({
+    name,
+    age,
+  });
+};
+export const demo2 = async (req, res) => {
+  console.log(req);
+  let name = req.query.name;
+  let age = req.query.age;
+  return res.json({
+    name,
+    age,
+  });
+};
+// /**
+//  * @description demo3, just for testing
+//  * @returns {Object} { message: "task demo3 successfully" }
+//  */
+export const demo3 = async (req, res) => {
+  let jsonBody = req.body;
+  return res.json(jsonBody);
+};
+export const demo4 = async (req, res) => {
+  let formDataBody = req.body;
+  return res.json(formDataBody);
+};
+
+/**
+ * @description demo5, just for testing
+ * @returns {Object} { message: string }
+ */
+export const demo5 = async (req, res) => {
+  let reqHeaders = req.headers;
+  return res.json(reqHeaders);
+};
+export const demo6 = async (req, res) => {
+  let reqHeaders = req.headers;
+  return res.json(reqHeaders);
+};
+
+                                                 taskController.js
+                                                 authMiddleware.js
+export const authMiddleware = (req, res, next) => {
+  // Your authentication logic here
+  console.log("i am middleware");
+  next();
+};
+
+                                                 authMiddleware.js

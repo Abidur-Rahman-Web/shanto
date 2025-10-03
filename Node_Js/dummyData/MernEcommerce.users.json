@@ -1,0 +1,51 @@
+[
+  {
+    "_id": { "$oid": "64f865337f12bc50f718d79a" },
+    "email": "engr.rabbil@yahoo.com",
+    "createdAt": { "$date": "2023-09-06T11:40:27.247Z" },
+    "otp": "0",
+    "updatedAt": { "$date": "2023-09-27T17:11:32.735Z" }
+  },
+  {
+    "_id": { "$oid": "64ff1434858e47157a0639ae" },
+    "email": "rayhanbabu458@gmail.com",
+    "createdAt": { "$date": "2023-09-11T13:20:52.400Z" },
+    "otp": "0",
+    "updatedAt": { "$date": "2023-09-28T13:36:50.480Z" }
+  },
+  {
+    "_id": { "$oid": "65000123458e47157a0639bf" },
+    "email": "shanto.dev@gmail.com",
+    "createdAt": { "$date": "2023-09-15T09:25:30.120Z" },
+    "otp": "123456",
+    "updatedAt": { "$date": "2023-09-20T14:10:45.600Z" }
+  },
+  {
+    "_id": { "$oid": "65011234567e47157a0639c1" },
+    "email": "mehedi.cse@gmail.com",
+    "createdAt": { "$date": "2023-09-18T08:10:12.510Z" },
+    "otp": "654321",
+    "updatedAt": { "$date": "2023-09-25T17:40:20.980Z" }
+  },
+  {
+    "_id": { "$oid": "65022345678e47157a0639c5" },
+    "email": "nabila.akther@example.com",
+    "createdAt": { "$date": "2023-09-20T12:00:00.000Z" },
+    "otp": "789012",
+    "updatedAt": { "$date": "2023-09-28T11:15:32.340Z" }
+  },
+  {
+    "_id": { "$oid": "65033456789e47157a0639c9" },
+    "email": "tanvir.rana@example.com",
+    "createdAt": { "$date": "2023-09-22T10:45:15.880Z" },
+    "otp": "345678",
+    "updatedAt": { "$date": "2023-09-29T09:50:22.640Z" }
+  },
+  {
+    "_id": { "$oid": "65044567890e47157a0639cd" },
+    "email": "mahin.hassan@example.com",
+    "createdAt": { "$date": "2023-09-25T16:30:05.220Z" },
+    "otp": "987654",
+    "updatedAt": { "$date": "2023-09-30T20:25:10.740Z" }
+  }
+]
